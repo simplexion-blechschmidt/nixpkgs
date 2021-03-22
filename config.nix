@@ -1,14 +1,18 @@
 let
-  # Pinned nixpkgs master, deterministic. Last updated: 2021-03-20.
+  # Choose Pakcage Source
+
+  ## Pinned nixpkgs master, deterministic. Last updated: 2021-03-20.
   pkgs = import (fetchTarball("https://github.com/NixOS/nixpkgs/archive/85141b8609cae8747d29ea9ca66e58828a3a85e4.tar.gz")) {};
-
-  # Rolling updates, not deterministic.
+  
+  ## Rolling updates, not deterministic.
   #pkgs = import (fetchTarball("channel:nixpkgs-unstable")) {};
-
-  # System nixpkgs, not deterministic.
+  
+  ## System nixpkgs, not deterministic.
   #pkgs = import <nixpkgs> {config={allowUnfree = true;};};
-in
-let
+
+  # Configure Packages
+
+  ## Visual Studio Code
   extensions = (with pkgs.vscode-extensions; [
       ms-vsliveshare.vsliveshare
     ]);
