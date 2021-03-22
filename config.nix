@@ -1,14 +1,12 @@
-#with import <nixpkgs> {config={allowUnfree = true;};};
-
 let
   # Pinned nixpkgs master, deterministic. Last updated: 2021-03-20.
   pkgs = import (fetchTarball("https://github.com/NixOS/nixpkgs/archive/85141b8609cae8747d29ea9ca66e58828a3a85e4.tar.gz")) {};
 
   # Rolling updates, not deterministic.
-  # pkgs = import (fetchTarball("channel:nixpkgs-unstable")) {};
+  #pkgs = import (fetchTarball("channel:nixpkgs-unstable")) {};
 
   # System nixpkgs, not deterministic.
-  # pkgs = import <nixpkgs> {};
+  #pkgs = import <nixpkgs> {config={allowUnfree = true;};};
 in
 let
   extensions = (with pkgs.vscode-extensions; [
